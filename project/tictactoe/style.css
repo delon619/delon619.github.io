@@ -1,0 +1,439 @@
+/* Tic Tac Toe Game Styles */
+
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #ec4899;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #06b6d4;
+    --dark-color: #1f2937;
+    --light-color: #f3f4f6;
+    --x-color: #ef4444;
+    --o-color: #3b82f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+
+.game-container {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styles */
+.game-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.game-subtitle {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+/* Mode Selection */
+.mode-selection h3 {
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.btn-mode {
+    background: white;
+    border: 3px solid var(--light-color);
+    border-radius: 20px;
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+    color: var(--dark-color);
+}
+
+.btn-mode:hover {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.btn-mode i {
+    display: block;
+    color: inherit;
+}
+
+.btn-mode h5 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.btn-mode p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Player Info Cards */
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.player-card {
+    background: white;
+    border: 3px solid var(--light-color);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.player-card.active {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
+}
+
+.player-card.player-x.active {
+    border-color: var(--x-color);
+}
+
+.player-card.player-o.active {
+    border-color: var(--o-color);
+}
+
+.player-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.player-x .player-icon {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: var(--x-color);
+}
+
+.player-o .player-icon {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: var(--o-color);
+}
+
+.player-card h5 {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--dark-color);
+}
+
+.player-card p {
+    color: #6b7280;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Game Status */
+.game-status {
+    background: linear-gradient(135deg, var(--light-color), white);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.game-status h4 {
+    font-weight: 700;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+/* Game Board */
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    border-radius: 20px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: white;
+    border: 3px solid var(--light-color);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cell:hover:not(.taken) {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
+}
+
+.cell:hover:not(.taken)::before {
+    opacity: 0.1;
+}
+
+.cell.taken {
+    cursor: not-allowed;
+}
+
+.cell.x {
+    color: var(--x-color);
+    border-color: var(--x-color);
+    animation: popIn 0.3s ease;
+}
+
+.cell.o {
+    color: var(--o-color);
+    border-color: var(--o-color);
+    animation: popIn 0.3s ease;
+}
+
+.cell.winner {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    animation: winPulse 0.5s ease infinite;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes winPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Game Controls */
+.game-controls {
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.btn-outline-secondary {
+    border: 2px solid var(--light-color);
+    color: var(--dark-color);
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--light-color);
+    border-color: var(--dark-color);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+}
+
+/* Game Stats */
+.game-stats {
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h5 {
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card h3 {
+    font-weight: 800;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+}
+
+.win-animation i,
+.draw-animation i {
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 25px;
+    }
+
+    .game-title {
+        font-size: 2rem;
+    }
+
+    .board-grid {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .cell {
+        font-size: 2rem;
+    }
+
+    .player-card {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .player-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .btn-mode {
+        padding: 20px 15px;
+    }
+
+    .btn-mode i {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .game-title {
+        font-size: 1.75rem;
+    }
+
+    .game-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .cell {
+        font-size: 1.5rem;
+    }
+
+    .player-card h5 {
+        font-size: 0.95rem;
+    }
+
+    .game-controls .btn {
+        display: block;
+        width: 100%;
+        margin: 5px 0 !important;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-board-container {
+    animation: fadeIn 0.5s ease;
+}
+
+.mode-selection {
+    animation: fadeIn 0.5s ease;
+}

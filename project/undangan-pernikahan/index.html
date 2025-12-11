@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Budi & Ani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Audio Background -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Button -->
+    <button class="music-control" id="musicControl">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Opening Cover -->
+    <div class="cover" id="cover">
+        <div class="cover-content">
+            <div class="cover-ornament top"></div>
+            <h1 data-aos="fade-down">Undangan Pernikahan</h1>
+            <div class="couple-names" data-aos="zoom-in" data-aos-delay="200">
+                <h2>Budi & Ani</h2>
+            </div>
+            <p data-aos="fade-up" data-aos-delay="400">Kepada Yth.</p>
+            <p class="guest-name" data-aos="fade-up" data-aos-delay="500" id="guestName">Bapak/Ibu/Saudara/i</p>
+            <button class="btn-open" data-aos="zoom-in" data-aos-delay="700" id="openInvitation">
+                <i class="fas fa-envelope-open"></i> Buka Undangan
+            </button>
+            <div class="cover-ornament bottom"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero-wedding">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-subtitle" data-aos="fade-down">The Wedding Of</p>
+                <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">Budi & Ani</h1>
+                <div class="hero-date" data-aos="fade-up" data-aos-delay="400">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Sabtu, 15 Februari 2025</span>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- Ayat Section -->
+        <section class="verse-section">
+            <div class="container">
+                <div class="verse-content" data-aos="fade-up">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="verse-text">
+                        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                    </p>
+                    <p class="verse-source">QS. Ar-Rum: 21</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="couple-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Mempelai</h2>
+                <div class="couple-container">
+                    <!-- Groom -->
+                    <div class="couple-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="couple-photo">
+                            <div class="photo-frame">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                        </div>
+                        <h3 class="couple-name">Budi Santoso, S.Kom</h3>
+                        <p class="couple-detail">Putra pertama dari</p>
+                        <p class="couple-parents">Bapak Ahmad Santoso<br>& Ibu Siti Aminah</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="couple-divider" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-heart"></i>
+                    </div>
+
+                    <!-- Bride -->
+                    <div class="couple-card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="couple-photo">
+                            <div class="photo-frame">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h3 class="couple-name">Ani Wijaya, S.Pd</h3>
+                        <p class="couple-detail">Putri pertama dari</p>
+                        <p class="couple-parents">Bapak Surya Wijaya<br>& Ibu Dewi Kusuma</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Section -->
+        <section class="event-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Waktu & Tempat</h2>
+                <div class="events-container">
+                    <!-- Akad Nikah -->
+                    <div class="event-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="event-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3>Akad Nikah</h3>
+                        <div class="event-detail">
+                            <i class="far fa-calendar"></i>
+                            <span>Sabtu, 15 Februari 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="far fa-clock"></i>
+                            <span>08:00 - 10:00 WIB</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Masjid Al-Ikhlas<br>Jl. Merdeka No. 123, Jakarta</span>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" class="btn-map">
+                            <i class="fas fa-map"></i> Lihat Lokasi
+                        </a>
+                    </div>
+
+                    <!-- Resepsi -->
+                    <div class="event-card" data-aos="flip-left" data-aos-delay="400">
+                        <div class="event-icon">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <h3>Resepsi Pernikahan</h3>
+                        <div class="event-detail">
+                            <i class="far fa-calendar"></i>
+                            <span>Sabtu, 15 Februari 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="far fa-clock"></i>
+                            <span>11:00 - 15:00 WIB</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Gedung Serbaguna Nusantara<br>Jl. Sudirman No. 456, Jakarta</span>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" class="btn-map">
+                            <i class="fas fa-map"></i> Lihat Lokasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Hitung Mundur</h2>
+                <div class="countdown-container" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Hari</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Jam</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Menit</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Detik</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Galeri Foto</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Konfirmasi Kehadiran</h2>
+                <div class="rsvp-form" data-aos="fade-up" data-aos-delay="200">
+                    <form id="rsvpForm">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Nama Lengkap</label>
+                            <input type="text" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-users"></i> Jumlah Tamu</label>
+                            <select required>
+                                <option value="">Pilih jumlah tamu</option>
+                                <option value="1">1 Orang</option>
+                                <option value="2">2 Orang</option>
+                                <option value="3">3 Orang</option>
+                                <option value="4">4 Orang</option>
+                                <option value="5">5+ Orang</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-check-circle"></i> Konfirmasi Kehadiran</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="attendance" value="hadir" required>
+                                    <span>Hadir</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="attendance" value="tidak" required>
+                                    <span>Tidak Hadir</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Kirim Konfirmasi
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wishes-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Ucapan & Doa</h2>
+                <div class="wishes-form" data-aos="fade-up" data-aos-delay="200">
+                    <form id="wishesForm">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Nama</label>
+                            <input type="text" placeholder="Nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Ucapan & Doa</label>
+                            <textarea rows="4" placeholder="Tulis ucapan dan doa untuk mempelai..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-heart"></i> Kirim Ucapan
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="wishes-list" data-aos="fade-up" data-aos-delay="400">
+                    <div class="wish-item">
+                        <div class="wish-header">
+                            <i class="fas fa-user-circle"></i>
+                            <div>
+                                <h4>John Doe</h4>
+                                <span class="wish-date">2 hari yang lalu</span>
+                            </div>
+                        </div>
+                        <p class="wish-message">Selamat menempuh hidup baru! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fi khair.</p>
+                    </div>
+                    <div class="wish-item">
+                        <div class="wish-header">
+                            <i class="fas fa-user-circle"></i>
+                            <div>
+                                <h4>Jane Smith</h4>
+                                <span class="wish-date">3 hari yang lalu</span>
+                            </div>
+                        </div>
+                        <p class="wish-message">Bahagia selalu untuk kalian berdua. Semoga langgeng sampai maut memisahkan. Aamiin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Section -->
+        <section class="gift-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Amplop Digital</h2>
+                <p class="gift-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Doa restu Anda merupakan karunia yang sangat berarti bagi kami.<br>
+                    Namun jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara digital.
+                </p>
+                <div class="gift-cards">
+                    <div class="gift-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="bank-logo">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Bank BCA</h3>
+                        <p class="account-number">1234567890</p>
+                        <p class="account-name">a.n. Budi Santoso</p>
+                        <button class="btn-copy" data-copy="1234567890">
+                            <i class="fas fa-copy"></i> Salin
+                        </button>
+                    </div>
+                    <div class="gift-card" data-aos="flip-left" data-aos-delay="400">
+                        <div class="bank-logo">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Bank Mandiri</h3>
+                        <p class="account-number">0987654321</p>
+                        <p class="account-name">a.n. Ani Wijaya</p>
+                        <button class="btn-copy" data-copy="0987654321">
+                            <i class="fas fa-copy"></i> Salin
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thank You Section -->
+        <section class="thankyou-section">
+            <div class="container">
+                <div class="thankyou-content" data-aos="zoom-in">
+                    <i class="fas fa-heart"></i>
+                    <h2>Terima Kasih</h2>
+                    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+                    <div class="closing-names">
+                        <p>Kami yang berbahagia,</p>
+                        <h3>Budi & Ani</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>Made with <i class="fas fa-heart"></i> for Budi & Ani</p>
+                <p>&copy; 2025 Wedding Invitation</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

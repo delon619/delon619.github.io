@@ -1,0 +1,400 @@
+/* Custom Styles for Arung Senja Cafe */
+
+:root {
+    --primary-color: #8B4513;
+    --secondary-color: #D2691E;
+    --accent-color: #FF8C00;
+    --dark-brown: #3E2723;
+    --light-brown: #EFEBE9;
+    --sunset-orange: #FF6347;
+    --warm-yellow: #FFD700;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Navbar Customization */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--warm-yellow);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--warm-yellow) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--sunset-orange) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.1" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80L1200,75L1200,120L1152,120C1104,120,1008,120,912,120C816,120,720,120,624,120C528,120,432,120,336,120C240,120,144,120,48,120L0,120Z"></path></svg>') repeat-x bottom;
+    background-size: cover;
+    animation: wave 20s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1200px;
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Bootstrap Button Customization */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color) !important;
+    transform: translateY(-3px);
+}
+
+/* About Section */
+.about-image-wrapper {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--light-brown) 0%, white 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image-wrapper i {
+    font-size: 10rem;
+    color: var(--primary-color);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Menu Cards */
+.menu-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2) !important;
+}
+
+.menu-filter {
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-filter.active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+.menu-filter:hover {
+    background-color: var(--light-brown);
+    border-color: var(--primary-color);
+}
+
+/* Service Cards */
+.service-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2) !important;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.service-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Badges */
+.badge {
+    padding: 8px 16px;
+    font-weight: 600;
+}
+
+.bg-primary-subtle {
+    background-color: rgba(139, 69, 19, 0.1) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-warning-subtle {
+    background-color: rgba(255, 215, 0, 0.2) !important;
+}
+
+.text-warning {
+    color: var(--accent-color) !important;
+}
+
+/* Facility Cards */
+.facility-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2) !important;
+}
+
+.facility-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.facility-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Reservation Section */
+.bg-gradient {
+    background: linear-gradient(135deg, var(--light-brown) 0%, #FFF8E7 100%);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.25);
+}
+
+/* Contact Cards */
+.contact-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2) !important;
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Social Buttons */
+.social-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.3s ease;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.social-btn:hover {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--primary-color) 100%);
+}
+
+/* Back to Top Button */
+#backToTop {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(139, 69, 19, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 80vh;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-image-wrapper i {
+        font-size: 6rem;
+    }
+
+    .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .service-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-filter {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

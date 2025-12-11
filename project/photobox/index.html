@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phome - PhotoBox Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/ailerons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-[Inter]">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">P</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-900">Phome</h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium text-gray-600" id="stepInfo">Step 1 of 4</span>
+                    <button onclick="resetApp()" class="p-2 hover:bg-gray-100 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Step 1: Layout Selection -->
+        <div id="step1" class="step-container">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Pilih Layout Frame</h2>
+                <p class="text-gray-600">Pilih template layout photobox favorit kamu</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="selectLayout('strip-3')" class="layout-card">
+                    <div class="layout-preview aspect-[2/3]">
+                        <div class="flex flex-col gap-0.5 h-full">
+                            <div class="flex-1 bg-gray-300 rounded"></div>
+                            <div class="flex-1 bg-gray-300 rounded"></div>
+                            <div class="flex-1 bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">Strip 3 Pose</p>
+                </button>
+
+                <button onclick="selectLayout('strip-4')" class="layout-card">
+                    <div class="layout-preview aspect-[2/3]">
+                        <div class="flex flex-col gap-0.5 h-full">
+                            
+                            <div class="flex-1 bg-gray-300 rounded"></div>
+                            <div class="flex-1 bg-gray-300 rounded"></div>
+                            <div class="flex-1 bg-gray-300 rounded"></div>
+                            <div class="flex-1 bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">Strip 4 Pose</p>
+                </button>
+
+                <button onclick="selectLayout('4r-land-2')" class="layout-card">
+                    <div class="layout-preview aspect-[3/2]">
+                        <div class="grid grid-cols-2 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">4R Land 2</p>
+                </button>
+
+                <button onclick="selectLayout('4r-land-3')" class="layout-card">
+                    <div class="layout-preview aspect-[3/2]">
+                        <div class="grid grid-cols-3 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">4R Land 3</p>
+                </button>
+
+                <button onclick="selectLayout('4r-land-4')" class="layout-card">
+                    <div class="layout-preview aspect-[3/2]">
+                        <div class="grid grid-cols-2 grid-rows-2 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">4R Land 4</p>
+                </button>
+
+                <button onclick="selectLayout('4r-port-2')" class="layout-card">
+                    <div class="layout-preview aspect-[2/3]">
+                        <div class="grid grid-rows-2 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">4R Port 2</p>
+                </button>
+
+                <button onclick="selectLayout('4r-port-3')" class="layout-card">
+                    <div class="layout-preview aspect-[2/3]">
+                        <div class="grid grid-rows-3 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">4R Port 3</p>
+                </button>
+
+                <button onclick="selectLayout('4r-port-4')" class="layout-card">
+                    <div class="layout-preview aspect-[2/3]">
+                        <div class="grid grid-cols-2 grid-rows-2 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">4R Port 4</p>
+                </button>
+
+                <button onclick="selectLayout('collage')" class="layout-card">
+                    <div class="layout-preview aspect-square">
+                        <div class="grid grid-cols-2 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded row-span-2"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">Collage Mix</p>
+                </button>
+
+                <button onclick="selectLayout('square-4')" class="layout-card">
+                    <div class="layout-preview aspect-square">
+                        <div class="grid grid-cols-2 grid-rows-2 gap-0.5 h-full">
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                            <div class="bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-sm">Square 4</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Camera -->
+        <div id="step2" class="step-container hidden">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Ambil Foto</h2>
+                <p class="text-gray-600">Foto <span id="currentPhoto">0</span> dari <span id="maxPhotos">0</span></p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-6">
+                    <div class="relative aspect-[4/3] bg-gray-900">
+                        <video id="video" class="w-full h-full object-cover" autoplay playsinline></video>
+                        <canvas id="captureCanvas" class="hidden"></canvas>
+                        
+                        <div id="countdown" class="absolute inset-0 bg-black/80 hidden flex items-center justify-center">
+                            <span id="countdownNumber" class="text-white text-9xl font-bold"></span>
+                        </div>
+
+                        <div id="placeholder" class="absolute inset-0 flex flex-col items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <p class="text-gray-500 mb-4">Kamera belum aktif</p>
+                            <button onclick="startCamera()" class="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition">
+                                Aktifkan Kamera
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 justify-center mb-6">
+                    <button id="captureBtn" onclick="capturePhoto()" disabled class="px-8 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition">
+                        📸 Ambil Foto
+                    </button>
+                    <button id="switchBtn" onclick="switchCamera()" disabled class="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 disabled:bg-gray-100 disabled:cursor-not-allowed transition">
+                        🔄 Switch
+                    </button>
+                    <label class="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 cursor-pointer transition">
+                        📁 Upload
+                        <input type="file" accept="image/*" onchange="uploadPhoto(event)" class="hidden">
+                    </label>
+                </div>
+
+                <div id="photoGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"></div>
+
+                <div class="text-center">
+                    <button id="nextToEditor" onclick="goToEditor()" disabled class="px-8 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition">
+                        Lanjut ke Editor →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Editor -->
+        <div id="step3" class="step-container hidden">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Edit & Preview</h2>
+                <p class="text-gray-600">Sesuaikan filter dan info event</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6">
+                <div>
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h3 class="text-lg font-semibold mb-4">Filter</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="flex justify-between text-sm font-medium text-gray-700 mb-2">
+                                    <span>Brightness</span>
+                                    <span id="brightnessVal">100</span>
+                                </label>
+                                <input type="range" id="brightness" min="50" max="150" value="100" 
+                                    oninput="applyFilters()" class="filter-slider">
+                            </div>
+
+                            <div>
+                                <label class="flex justify-between text-sm font-medium text-gray-700 mb-2">
+                                    <span>Contrast</span>
+                                    <span id="contrastVal">100</span>
+                                </label>
+                                <input type="range" id="contrast" min="50" max="150" value="100" 
+                                    oninput="applyFilters()" class="filter-slider">
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="blackwhite" onchange="applyFilters()" class="w-4 h-4">
+                                <label for="blackwhite" class="text-sm font-medium text-gray-700">Black & White</label>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold mt-6 mb-4">Event Info</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                                <input type="text" id="eventTitle" value="phome" 
+                                    oninput="updatePreview()" 
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                                <input type="date" id="eventDate" 
+                                    onchange="updatePreview()" 
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <button onclick="resetFilters()" class="w-full mt-6 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition">
+                            Reset Filter
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h3 class="text-lg font-semibold mb-4">Preview</h3>
+                        <canvas id="previewCanvas" class="w-full border border-gray-200 rounded-lg"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-6">
+                <button onclick="goToExport()" class="px-8 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition">
+                    Lanjut ke Export →
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4: Export -->
+        <div id="step4" class="step-container hidden">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Download Hasil</h2>
+                <p class="text-gray-600">Simpan photobox kamu</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+                    <canvas id="finalCanvas" class="w-full border border-gray-200 rounded-lg"></canvas>
+                </div>
+
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <button onclick="downloadImage('png')" class="px-8 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition">
+                        📥 Download PNG
+                    </button>
+                    <button onclick="downloadImage('jpg')" class="px-8 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition">
+                        📥 Download JPG
+                    </button>
+                    <button onclick="resetApp()" class="px-8 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition">
+                        🔄 Buat Lagi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

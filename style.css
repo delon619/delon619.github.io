@@ -1,0 +1,101 @@
+/* Custom Styles for Bootstrap Portfolio */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar Customization */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #dc3545;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+/* Hero Section Customization */
+.hero {
+    padding-top: 80px;
+}
+
+/* Card Hover Effects */
+.skill-card,
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover,
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Back to Top Button Animation */
+#backToTop {
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(220, 53, 69, 0.4);
+}
+
+/* Contact Form Customization */
+.form-control:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+textarea.form-control {
+    min-height: 150px;
+}
+
+/* Footer Customization */
+footer {
+    background-color: #212529;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* Bootstrap Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p.lead {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+}

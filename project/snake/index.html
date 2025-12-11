@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Ular Makan Apel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-container">
+            <!-- Header -->
+            <header class="text-center mb-4">
+                <h1 class="game-title">
+                    <i class="fas fa-dragon me-2"></i>
+                    Snake Game
+                </h1>
+                <p class="game-subtitle">Kendalikan ular untuk memakan apel sebanyak-banyaknya!</p>
+            </header>
+
+            <!-- Start Screen -->
+            <div id="startScreen" class="start-screen text-center">
+                <div class="snake-logo mb-4">
+                    <i class="fas fa-dragon"></i>
+                </div>
+                <h2 class="mb-4">Selamat Datang!</h2>
+                <p class="lead mb-4">Gunakan tombol panah atau WASD untuk menggerakkan ular</p>
+                
+                <!-- Difficulty Selection -->
+                <div class="difficulty-selection mb-4">
+                    <h4 class="mb-3">Pilih Tingkat Kesulitan</h4>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-difficulty active" data-speed="150" onclick="setDifficulty(150, this)">
+                            <i class="fas fa-smile me-2"></i>Mudah
+                        </button>
+                        <button class="btn btn-difficulty" data-speed="100" onclick="setDifficulty(100, this)">
+                            <i class="fas fa-meh me-2"></i>Sedang
+                        </button>
+                        <button class="btn btn-difficulty" data-speed="60" onclick="setDifficulty(60, this)">
+                            <i class="fas fa-fire me-2"></i>Sulit
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-lg px-5" onclick="startGame()">
+                    <i class="fas fa-play me-2"></i>Mulai Bermain
+                </button>
+
+                <!-- Instructions -->
+                <div class="instructions mt-5">
+                    <h5 class="mb-3"><i class="fas fa-info-circle me-2"></i>Cara Bermain</h5>
+                    <div class="row g-3 text-start">
+                        <div class="col-md-6">
+                            <div class="instruction-card">
+                                <i class="fas fa-keyboard text-primary fs-4 me-2"></i>
+                                <span>Gunakan <strong>↑ ↓ ← →</strong> atau <strong>WASD</strong></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="instruction-card">
+                                <i class="fas fa-apple-alt text-danger fs-4 me-2"></i>
+                                <span>Makan apel untuk menambah skor</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="instruction-card">
+                                <i class="fas fa-exclamation-triangle text-warning fs-4 me-2"></i>
+                                <span>Jangan tabrak dinding atau tubuh sendiri</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="instruction-card">
+                                <i class="fas fa-pause text-info fs-4 me-2"></i>
+                                <span>Tekan <strong>SPACE</strong> untuk pause</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="gameScreen" class="game-screen" style="display: none;">
+                <!-- Game Info -->
+                <div class="game-info mb-3">
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4">
+                            <div class="info-card">
+                                <i class="fas fa-star text-warning"></i>
+                                <div>
+                                    <small>Skor</small>
+                                    <h4 id="currentScore">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="info-card">
+                                <i class="fas fa-trophy text-success"></i>
+                                <div>
+                                    <small>Tertinggi</small>
+                                    <h4 id="highScore">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="info-card">
+                                <i class="fas fa-tachometer-alt text-info"></i>
+                                <div>
+                                    <small>Kecepatan</small>
+                                    <h4 id="speedLevel">1</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canvas Container -->
+                <div class="canvas-container">
+                    <canvas id="gameCanvas" width="400" height="400"></canvas>
+                    <div id="pauseOverlay" class="pause-overlay" style="display: none;">
+                        <i class="fas fa-pause fs-1 mb-3"></i>
+                        <h3>PAUSED</h3>
+                        <p>Tekan SPACE untuk melanjutkan</p>
+                    </div>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="game-controls mt-3">
+                    <button class="btn btn-warning" onclick="togglePause()">
+                        <i class="fas fa-pause me-2"></i>Pause
+                    </button>
+                    <button class="btn btn-danger" onclick="endGame()">
+                        <i class="fas fa-stop me-2"></i>Berhenti
+                    </button>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="mobile-controls d-md-none mt-3">
+                    <div class="control-pad">
+                        <button class="btn-control btn-up" onclick="changeDirection('up')">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                        <div class="control-middle">
+                            <button class="btn-control btn-left" onclick="changeDirection('left')">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="btn-control btn-right" onclick="changeDirection('right')">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <button class="btn-control btn-down" onclick="changeDirection('down')">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div class="modal fade" id="gameOverModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="game-over-animation mb-4">
+                        <i class="fas fa-skull-crossbones text-danger" style="font-size: 5rem;"></i>
+                    </div>
+                    <h2 class="mb-3">Game Over!</h2>
+                    <div class="final-score mb-4">
+                        <p class="text-muted mb-2">Skor Akhir</p>
+                        <h1 class="display-3 fw-bold text-primary" id="finalScore">0</h1>
+                    </div>
+                    <div id="newHighScore" class="alert alert-success" style="display: none;">
+                        <i class="fas fa-trophy me-2"></i>
+                        <strong>Rekor Baru!</strong> Selamat!
+                    </div>
+                    <button class="btn btn-primary btn-lg me-2" onclick="restartGame()">
+                        <i class="fas fa-redo me-2"></i>Main Lagi
+                    </button>
+                    <button class="btn btn-outline-secondary btn-lg" onclick="backToMenu()">
+                        <i class="fas fa-home me-2"></i>Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-container">
+            <!-- Header -->
+            <header class="text-center mb-4">
+                <h1 class="game-title">
+                    <i class="fas fa-gamepad me-2"></i>
+                    Tic Tac Toe
+                </h1>
+                <p class="game-subtitle">Bermain dengan teman atau melawan komputer!</p>
+            </header>
+
+            <!-- Game Mode Selection -->
+            <div id="modeSelection" class="mode-selection text-center mb-4">
+                <h3 class="mb-4">Pilih Mode Permainan</h3>
+                <div class="row justify-content-center g-3">
+                    <div class="col-md-5">
+                        <button class="btn btn-mode w-100" onclick="startGame('pvp')">
+                            <i class="fas fa-users fs-1 mb-3"></i>
+                            <h5>Player vs Player</h5>
+                            <p class="mb-0">Bermain dengan teman</p>
+                        </button>
+                    </div>
+                    <div class="col-md-5">
+                        <button class="btn btn-mode w-100" onclick="startGame('pvc')">
+                            <i class="fas fa-robot fs-1 mb-3"></i>
+                            <h5>Player vs Computer</h5>
+                            <p class="mb-0">Melawan AI</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Board -->
+            <div id="gameBoard" class="game-board-container" style="display: none;">
+                <!-- Player Info -->
+                <div class="player-info mb-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="player-card player-x active" id="playerXCard">
+                                <div class="player-icon">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Player X</h5>
+                                    <p class="mb-0">Skor: <span id="scoreX">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="player-card player-o" id="playerOCard">
+                                <div class="player-icon">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1" id="playerOName">Player O</h5>
+                                    <p class="mb-0">Skor: <span id="scoreO">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Status -->
+                <div class="game-status text-center mb-4">
+                    <h4 id="gameStatus">Giliran Player X</h4>
+                </div>
+
+                <!-- Tic Tac Toe Grid -->
+                <div class="board-grid" id="board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="game-controls text-center mt-4">
+                    <button class="btn btn-primary btn-lg me-2" onclick="resetGame()">
+                        <i class="fas fa-redo me-2"></i>Main Lagi
+                    </button>
+                    <button class="btn btn-outline-secondary btn-lg" onclick="backToMenu()">
+                        <i class="fas fa-home me-2"></i>Menu Utama
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game Stats -->
+            <div id="gameStats" class="game-stats mt-5" style="display: none;">
+                <div class="row text-center g-3">
+                    <div class="col-4">
+                        <div class="stat-card">
+                            <i class="fas fa-trophy text-warning fs-2 mb-2"></i>
+                            <h5>Menang</h5>
+                            <h3 id="totalWins">0</h3>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="stat-card">
+                            <i class="fas fa-handshake text-info fs-2 mb-2"></i>
+                            <h5>Seri</h5>
+                            <h3 id="totalDraws">0</h3>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="stat-card">
+                            <i class="fas fa-sad-tear text-danger fs-2 mb-2"></i>
+                            <h5>Kalah</h5>
+                            <h3 id="totalLosses">0</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Win Modal -->
+    <div class="modal fade" id="winModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="win-animation mb-4">
+                        <i class="fas fa-trophy text-warning" style="font-size: 5rem;"></i>
+                    </div>
+                    <h2 class="mb-3" id="winnerText">Player X Menang!</h2>
+                    <p class="text-muted mb-4">Selamat! Permainan yang bagus!</p>
+                    <button class="btn btn-primary btn-lg me-2" onclick="resetGame(); bootstrap.Modal.getInstance(document.getElementById('winModal')).hide();">
+                        <i class="fas fa-redo me-2"></i>Main Lagi
+                    </button>
+                    <button class="btn btn-outline-secondary btn-lg" onclick="backToMenu(); bootstrap.Modal.getInstance(document.getElementById('winModal')).hide();">
+                        <i class="fas fa-home me-2"></i>Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Draw Modal -->
+    <div class="modal fade" id="drawModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="draw-animation mb-4">
+                        <i class="fas fa-handshake text-info" style="font-size: 5rem;"></i>
+                    </div>
+                    <h2 class="mb-3">Permainan Seri!</h2>
+                    <p class="text-muted mb-4">Tidak ada yang menang kali ini.</p>
+                    <button class="btn btn-primary btn-lg me-2" onclick="resetGame(); bootstrap.Modal.getInstance(document.getElementById('drawModal')).hide();">
+                        <i class="fas fa-redo me-2"></i>Main Lagi
+                    </button>
+                    <button class="btn btn-outline-secondary btn-lg" onclick="backToMenu(); bootstrap.Modal.getInstance(document.getElementById('drawModal')).hide();">
+                        <i class="fas fa-home me-2"></i>Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

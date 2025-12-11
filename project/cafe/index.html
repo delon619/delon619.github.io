@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arung Senja - Cafe & Coffee Shop</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-coffee"></i> Arung Senja
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#facilities">Fasilitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reservation">Reservasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="display-2 fw-bold text-white mb-4">Arung Senja</h1>
+                    <p class="lead text-white mb-4">Nikmati secangkir kopi terbaik sambil menikmati suasana senja yang menenangkan</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="#menu" class="btn btn-primary btn-lg px-5">
+                            <i class="fas fa-utensils me-2"></i> Lihat Menu
+                        </a>
+                        <a href="#reservation" class="btn btn-outline-light btn-lg px-5">
+                            <i class="fas fa-calendar-check me-2"></i> Reservasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="800">
+                    <div class="about-image-wrapper">
+                        <i class="fas fa-mug-hot display-1 text-primary"></i>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800">
+                    <h2 class="display-5 fw-bold mb-4">Tentang Arung Senja</h2>
+                    <p class="lead text-muted mb-4">Arung Senja adalah tempat di mana kopi bertemu dengan ketenangan. Kami menyajikan berbagai pilihan kopi berkualitas, makanan lezat, dan suasana yang sempurna untuk bersantai atau bekerja.</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-coffee text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Kopi Enak</h5>
+                                    <p class="text-muted mb-0">Biji kopi pilihan yang diseduh sempurna</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-cookie-bite text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Makanan Lezat</h5>
+                                    <p class="text-muted mb-0">Hidangan penutup yang menggugah selera</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-leaf text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Pilihan Teh</h5>
+                                    <p class="text-muted mb-0">Berbagai pilihan teh berkualitas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-laptop text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Ruang Kerja</h5>
+                                    <p class="text-muted mb-0">Cocok untuk bekerja dengan laptop</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5 bg-white">
+        <div class="container py-4">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up">Menu Kami</h2>
+            
+            <!-- Menu Filter -->
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary menu-filter active" data-filter="all">Semua</button>
+                    <button type="button" class="btn btn-outline-primary menu-filter" data-filter="coffee">Kopi</button>
+                    <button type="button" class="btn btn-outline-primary menu-filter" data-filter="tea">Teh</button>
+                    <button type="button" class="btn btn-outline-primary menu-filter" data-filter="food">Makanan</button>
+                    <button type="button" class="btn btn-outline-primary menu-filter" data-filter="dessert">Dessert</button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="menuContainer">
+                <!-- Coffee Items -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="coffee" data-aos="zoom-in" data-aos-duration="600">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Espresso</h5>
+                                    <p class="text-muted small mb-0">Kopi hitam pekat khas Italia</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">25K</span>
+                            </div>
+                            <i class="fas fa-coffee text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="coffee" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Cappuccino</h5>
+                                    <p class="text-muted small mb-0">Espresso dengan susu berbusa</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">35K</span>
+                            </div>
+                            <i class="fas fa-coffee text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="coffee" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Latte</h5>
+                                    <p class="text-muted small mb-0">Espresso dengan susu steamed</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">38K</span>
+                            </div>
+                            <i class="fas fa-coffee text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tea Items -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="tea" data-aos="zoom-in" data-aos-duration="600">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Green Tea Latte</h5>
+                                    <p class="text-muted small mb-0">Teh hijau dengan susu</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">32K</span>
+                            </div>
+                            <i class="fas fa-leaf text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="tea" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Earl Grey</h5>
+                                    <p class="text-muted small mb-0">Teh hitam beraroma bergamot</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">28K</span>
+                            </div>
+                            <i class="fas fa-leaf text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="tea" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Chamomile Tea</h5>
+                                    <p class="text-muted small mb-0">Teh herbal menenangkan</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">30K</span>
+                            </div>
+                            <i class="fas fa-leaf text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Items -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="food" data-aos="zoom-in" data-aos-duration="600">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Nasi Goreng</h5>
+                                    <p class="text-muted small mb-0">Nasi goreng spesial</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">35K</span>
+                            </div>
+                            <i class="fas fa-utensils text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="food" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Sandwich</h5>
+                                    <p class="text-muted small mb-0">Sandwich ayam panggang</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">32K</span>
+                            </div>
+                            <i class="fas fa-hamburger text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="food" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Pasta Carbonara</h5>
+                                    <p class="text-muted small mb-0">Pasta dengan saus krim</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">45K</span>
+                            </div>
+                            <i class="fas fa-utensils text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dessert Items -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="dessert" data-aos="zoom-in" data-aos-duration="600">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Tiramisu</h5>
+                                    <p class="text-muted small mb-0">Dessert khas Italia</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">38K</span>
+                            </div>
+                            <i class="fas fa-cake-candles text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="dessert" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Brownie</h5>
+                                    <p class="text-muted small mb-0">Cokelat panggang lembut</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">28K</span>
+                            </div>
+                            <i class="fas fa-cookie text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="dessert" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <div class="card menu-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Cheesecake</h5>
+                                    <p class="text-muted small mb-0">Kue keju creamy</p>
+                                </div>
+                                <span class="badge bg-primary fs-6">40K</span>
+                            </div>
+                            <i class="fas fa-cake-candles text-primary fs-3"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container py-4">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up">Layanan Kami</h2>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-duration="600">
+                    <div class="card service-card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Makan di Tempat</h5>
+                        <p class="text-muted mb-0">Nikmati hidangan di tempat dengan suasana nyaman</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-duration="600" data-aos-delay="100">
+                    <div class="card service-card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Bawa Pulang</h5>
+                        <p class="text-muted mb-0">Pesan dan bawa pulang makanan favorit Anda</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-duration="600" data-aos-delay="200">
+                    <div class="card service-card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Pesan Antar</h5>
+                        <p class="text-muted mb-0">Layanan pesan antar ke lokasi Anda</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-duration="600" data-aos-delay="300">
+                    <div class="card service-card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Area Terbuka</h5>
+                        <p class="text-muted mb-0">Tempat duduk di area outdoor</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular For -->
+            <h3 class="text-center fw-bold mb-4" data-aos="fade-up">Populer Untuk</h3>
+            <div class="row g-3 justify-content-center mb-5">
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="badge bg-primary-subtle text-primary fs-6 px-4 py-3"><i class="fas fa-sun me-2"></i>Sarapan</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="150">
+                    <span class="badge bg-primary-subtle text-primary fs-6 px-4 py-3"><i class="fas fa-coffee me-2"></i>Brunch</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="badge bg-primary-subtle text-primary fs-6 px-4 py-3"><i class="fas fa-utensils me-2"></i>Makan Siang</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="250">
+                    <span class="badge bg-primary-subtle text-primary fs-6 px-4 py-3"><i class="fas fa-moon me-2"></i>Makan Malam</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="300">
+                    <span class="badge bg-primary-subtle text-primary fs-6 px-4 py-3"><i class="fas fa-user me-2"></i>Makan Sendiri</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="350">
+                    <span class="badge bg-primary-subtle text-primary fs-6 px-4 py-3"><i class="fas fa-laptop me-2"></i>Bekerja</span>
+                </div>
+            </div>
+
+            <!-- Atmosphere -->
+            <h3 class="text-center fw-bold mb-4" data-aos="fade-up">Suasana</h3>
+            <div class="row g-3 justify-content-center">
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="badge bg-warning-subtle text-warning fs-6 px-4 py-3"><i class="fas fa-couch me-2"></i>Nyaman</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="150">
+                    <span class="badge bg-warning-subtle text-warning fs-6 px-4 py-3"><i class="fas fa-heart me-2"></i>Romantis</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="badge bg-warning-subtle text-warning fs-6 px-4 py-3"><i class="fas fa-spa me-2"></i>Santai</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="250">
+                    <span class="badge bg-warning-subtle text-warning fs-6 px-4 py-3"><i class="fas fa-volume-mute me-2"></i>Tenang</span>
+                </div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="300">
+                    <span class="badge bg-warning-subtle text-warning fs-6 px-4 py-3"><i class="fas fa-star me-2"></i>Trendi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-5 bg-white">
+        <div class="container py-4">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up">Fasilitas</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600">
+                    <div class="card facility-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="facility-icon me-3">
+                                    <i class="fas fa-wifi"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Wi-Fi Gratis</h5>
+                                    <p class="text-muted mb-0">Internet cepat untuk bekerja atau browsing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                    <div class="card facility-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="facility-icon me-3">
+                                    <i class="fas fa-restroom"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Toilet Bersih</h5>
+                                    <p class="text-muted mb-0">Fasilitas toilet yang terawat dan nyaman</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <div class="card facility-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="facility-icon me-3">
+                                    <i class="fas fa-parking"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Parkir Gratis</h5>
+                                    <p class="text-muted mb-0">Area parkir luas dan gratis untuk pelanggan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+                    <div class="card facility-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="facility-icon me-3">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Ramah Keluarga</h5>
+                                    <p class="text-muted mb-0">Kursi tinggi dan menu anak tersedia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+                    <div class="card facility-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="facility-icon me-3">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Pembayaran Cashless</h5>
+                                    <p class="text-muted mb-0">Terima kartu kredit, debit, dan NFC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
+                    <div class="card facility-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="facility-icon me-3">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Cocok Berkelompok</h5>
+                                    <p class="text-muted mb-0">Tempat yang pas untuk mahasiswa dan keluarga</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="py-5 bg-gradient">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <h2 class="text-center fw-bold mb-4">Reservasi Meja</h2>
+                            <p class="text-center text-muted mb-4">Pesan meja Anda sekarang dan nikmati pengalaman terbaik di Arung Senja</p>
+                            
+                            <form id="reservationForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Nomor Telepon</label>
+                                        <input type="tel" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Tanggal</label>
+                                        <input type="date" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Waktu</label>
+                                        <input type="time" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Jumlah Orang</label>
+                                        <select class="form-select form-select-lg" required>
+                                            <option value="">Pilih jumlah</option>
+                                            <option value="1">1 Orang</option>
+                                            <option value="2">2 Orang</option>
+                                            <option value="3">3 Orang</option>
+                                            <option value="4">4 Orang</option>
+                                            <option value="5">5+ Orang</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Area</label>
+                                        <select class="form-select form-select-lg" required>
+                                            <option value="">Pilih area</option>
+                                            <option value="indoor">Indoor</option>
+                                            <option value="outdoor">Outdoor</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold">Catatan Khusus (Opsional)</label>
+                                        <textarea class="form-control" rows="3" placeholder="Permintaan khusus atau catatan tambahan..."></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                            <i class="fas fa-calendar-check me-2"></i> Reservasi Sekarang
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up">Hubungi Kami</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-duration="600">
+                    <div class="card contact-card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="contact-icon mb-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Alamat</h5>
+                        <p class="text-muted mb-0">Jl. Senja Indah No. 123<br>Kota, Indonesia 12345</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                    <div class="card contact-card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="contact-icon mb-3">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Telepon</h5>
+                        <p class="text-muted mb-0">+62 812-3456-7890<br>+62 821-9876-5432</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <div class="card contact-card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="contact-icon mb-3">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Jam Buka</h5>
+                        <p class="text-muted mb-0">Senin - Jumat: 08:00 - 22:00<br>Sabtu - Minggu: 09:00 - 23:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                <h5 class="fw-bold mb-3">Ikuti Kami</h5>
+                <div class="d-flex gap-3 justify-content-center">
+                    <a href="#" class="btn btn-outline-primary btn-lg rounded-circle social-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary btn-lg rounded-circle social-btn">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary btn-lg rounded-circle social-btn">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary btn-lg rounded-circle social-btn">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="text-center">
+                <h4 class="fw-bold mb-3"><i class="fas fa-coffee me-2"></i>Arung Senja</h4>
+                <p class="mb-3">Nikmati secangkir kopi terbaik dengan suasana yang sempurna</p>
+                <p class="mb-0">&copy; 2025 Arung Senja Cafe. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4" style="width: 55px; height: 55px; display: none; z-index: 1000;">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
