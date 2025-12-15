@@ -3,157 +3,682 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Mahasiswa Informatika</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <title>Portofolio Futuristik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #00f7ff;
+            --secondary: #7700ff;
+            --dark: #0a0a16;
+            --darker: #050510;
+            --light: #e0e0ff;
+            --accent: #ff00aa;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background Animasi */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(125deg, var(--darker) 0%, var(--dark) 100%);
+            overflow: hidden;
+        }
+
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 247, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 247, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.1); }
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Header & Navigasi */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 16, 0.8);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.1);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(5, 5, 16, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(224, 224, 255, 0.8);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(0, 247, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50% 20% 50% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(0, 247, 255, 0.2);
+            border-radius: inherit;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(10, 10, 22, 0.5);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .skill {
+            padding: 8px 15px;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .about-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hexagon-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .hexagon {
+            position: absolute;
+            width: 100px;
+            height: 115px;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .hexagon:before, .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+
+        .hexagon:before {
+            bottom: 100%;
+            border-bottom: 28.87px solid rgba(0, 247, 255, 0.1);
+        }
+
+        .hexagon:after {
+            top: 100%;
+            border-top: 28.87px solid rgba(0, 247, 255, 0.1);
+        }
+
+        .hexagon:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hexagon:nth-child(2) {
+            top: 86px;
+            left: 0;
+        }
+
+        .hexagon:nth-child(3) {
+            top: 86px;
+            right: 0;
+        }
+
+        .hexagon:nth-child(4) {
+            top: 172px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hexagon:hover {
+            background: rgba(0, 247, 255, 0.2);
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(10, 10, 22, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .project-tag {
+            padding: 4px 10px;
+            background: rgba(0, 247, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(10, 10, 22, 0.5);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 247, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(10, 10, 22, 0.7);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 5px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.2);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 30px;
+            color: var(--darker);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 247, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 247, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: rgba(224, 224, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsif */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: rgba(5, 5, 16, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: right 0.5s ease;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-danger" href="#home">
-                <i class="fas fa-code"></i> Portfolio
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Keahlian</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Proyek</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak</a>
-                    </li>
-                </ul>
-            </div>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="bg-grid"></div>
+        <div class="floating-elements">
+            <div class="floating-element" style="width: 200px; height: 200px; top: 10%; left: 10%;"></div>
+            <div class="floating-element" style="width: 150px; height: 150px; top: 60%; left: 80%;"></div>
+            <div class="floating-element" style="width: 100px; height: 100px; top: 30%; left: 60%;"></div>
+            <div class="floating-element" style="width: 120px; height: 120px; top: 80%; left: 20%;"></div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Portofolio<span></a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#projects">Proyek</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero bg-light">
-        <div class="container py-5">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-                    <h1 class="display-4 fw-bold mb-3">Halo, Saya <span class="text-danger">Mahasiswa Informatika</span></h1>
-                    <p class="lead text-muted mb-3">Passionate Developer & Problem Solver</p>
-                    <p class="text-muted mb-4">Saya seorang mahasiswa informatika yang antusias dalam pengembangan web, pemrograman, dan teknologi terkini.</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="#projects" class="btn btn-danger btn-lg">
-                            <i class="fas fa-folder-open me-2"></i> Lihat Proyek
-                        </a>
-                        <a href="#contact" class="btn btn-outline-danger btn-lg">
-                            <i class="fas fa-envelope me-2"></i> Hubungi Saya
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
-                    <i class="fas fa-laptop-code display-1 text-danger opacity-25" style="font-size: 15rem;"></i>
-                </div>
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Halo, Saya <span>Delon Nicholas Hermawan</span></h1>
+                <p>Passionate Developer & Problem Solver. Saya seorang mahasiswa informatika yang antusias dalam pengembangan web, pemrograman, dan teknologi terkini.</p>
+                <a href="#projects" class="cta-button">Lihat Proyek Saya</a>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder untuk gambar atau animasi 3D -->
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-5 bg-white">
+    <section id="about" class="about">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">Tentang Saya</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-center mb-4 mb-lg-0" data-aos="zoom-in" data-aos-duration="800">
-                    <i class="fas fa-user-graduate text-danger display-1"></i>
-                </div>
-                <div class="col-lg-8" data-aos="fade-left" data-aos-duration="1000">
-                    <h3 class="text-danger mb-3">Mahasiswa Informatika yang Berdedikasi</h3>
-                    <p class="text-muted mb-3">Saya adalah mahasiswa informatika yang passionate dalam dunia teknologi dan pemrograman. Dengan fokus pada pengembangan web dan aplikasi, saya terus belajar dan mengembangkan keterampilan untuk menciptakan solusi inovatif.</p>
-                    <p class="text-muted mb-4">Saya percaya bahwa teknologi adalah kunci untuk memecahkan berbagai tantangan di dunia modern, dan saya berkomitmen untuk terus berkembang dalam bidang ini.</p>
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <div class="card text-center border-0 bg-light p-3 h-100">
-                                <i class="fas fa-graduation-cap text-danger fs-2 mb-2"></i>
-                                <h5 class="fw-bold">Pendidikan</h5>
-                                <p class="text-muted mb-0">S1 Informatika</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card text-center border-0 bg-light p-3 h-100">
-                                <i class="fas fa-project-diagram text-danger fs-2 mb-2"></i>
-                                <h5 class="fw-bold">Proyek</h5>
-                                <p class="text-muted mb-0">10+ Proyek</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card text-center border-0 bg-light p-3 h-100">
-                                <i class="fas fa-award text-danger fs-2 mb-2"></i>
-                                <h5 class="fw-bold">Pengalaman</h5>
-                                <p class="text-muted mb-0">2+ Tahun</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-title">
+                <h2>Tentang Saya</h2>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">Keahlian</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-duration="600">
-                    <div class="card border-0 shadow-sm h-100 text-center p-4 skill-card">
-                        <i class="fas fa-code text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold mb-2">Web Development</h4>
-                        <p class="text-muted mb-0">HTML, CSS, JavaScript, React, Node.js</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Mahasiswa Informatika yang Berdedikasi</h3>
+                    <p>Saya adalah mahasiswa informatika yang passionate dalam dunia teknologi dan pemrograman. Dengan fokus pada pengembangan web dan aplikasi, saya terus belajar dan mengembangkan keterampilan untuk menciptakan solusi inovatif.</p>
+                    <p>Saya percaya bahwa teknologi adalah kunci untuk memecahkan berbagai tantangan di dunia modern, dan saya berkomitmen untuk terus berkembang dalam bidang ini.</p>
+                    <div class="skills">
+                        <span class="skill">Web Development</span>
+                        <span class="skill">Database</span>
+                        <span class="skill">Python & Java</span>
+                        <span class="skill">Mobile Development</span>
+                        <span class="skill">Git & GitHub</span>
+                        <span class="skill">Problem Solving</span>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-duration="600" data-aos-delay="100">
-                    <div class="card border-0 shadow-sm h-100 text-center p-4 skill-card">
-                        <i class="fas fa-database text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold mb-2">Database</h4>
-                        <p class="text-muted mb-0">MySQL, MongoDB, PostgreSQL</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-duration="600" data-aos-delay="200">
-                    <div class="card border-0 shadow-sm h-100 text-center p-4 skill-card">
-                        <i class="fab fa-python text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold mb-2">Programming</h4>
-                        <p class="text-muted mb-0">Python, Java, C++, PHP</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-duration="600" data-aos-delay="300">
-                    <div class="card border-0 shadow-sm h-100 text-center p-4 skill-card">
-                        <i class="fas fa-mobile-alt text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold mb-2">Mobile Development</h4>
-                        <p class="text-muted mb-0">React Native, Flutter</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-duration="600" data-aos-delay="400">
-                    <div class="card border-0 shadow-sm h-100 text-center p-4 skill-card">
-                        <i class="fas fa-git-alt text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold mb-2">Version Control</h4>
-                        <p class="text-muted mb-0">Git, GitHub, GitLab</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-duration="600" data-aos-delay="500">
-                    <div class="card border-0 shadow-sm h-100 text-center p-4 skill-card">
-                        <i class="fas fa-brain text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold mb-2">Problem Solving</h4>
-                        <p class="text-muted mb-0">Algoritma, Struktur Data</p>
+                <div class="about-visual">
+                    <div class="hexagon-container">
+                        <div class="hexagon"><i class="fas fa-code"></i></div>
+                        <div class="hexagon"><i class="fas fa-palette"></i></div>
+                        <div class="hexagon"><i class="fas fa-robot"></i></div>
+                        <div class="hexagon"><i class="fas fa-cube"></i></div>
                     </div>
                 </div>
             </div>
@@ -161,153 +686,105 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-white">
+    <section id="projects" class="projects">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">Proyek Saya</h2>
-            <div class="row g-4">
-                <!-- Phome PhotoBox Studio -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600">
-                    <div class="card border-0 shadow-sm h-100 project-card">
-                        <div class="card-body">
-                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 mb-3 text-center">
-                                <i class="fas fa-camera text-danger fs-1"></i>
-                            </div>
-                            <h4 class="fw-bold mb-2">Phome PhotoBox Studio</h4>
-                            <p class="text-muted mb-3">Aplikasi photobox profesional dengan 10 layout template, filter, dan export high-resolution.</p>
-                            <div class="mb-3">
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">Canvas API</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">Tailwind</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger">JavaScript</span>
-                            </div>
-                            <a href="project/photobox/index.html" target="_blank" class="text-danger text-decoration-none fw-semibold">
-                                <i class="fas fa-external-link-alt me-1"></i> Buka Project
-                            </a>
+            <div class="section-title">
+                <h2>Proyek Terbaru</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/photobox/index.html" target="_blank" style="color: inherit; text-decoration: none;">Phome PhotoBox Studio</a></h3>
+                        <p>Aplikasi photobox profesional dengan 10 layout template, filter, dan export high-resolution.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Canvas API</span>
+                            <span class="project-tag">Tailwind</span>
+                            <span class="project-tag">JavaScript</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Flappy Bird Game -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                    <div class="card border-0 shadow-sm h-100 project-card">
-                        <div class="card-body">
-                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 mb-3 text-center">
-                                <i class="fas fa-gamepad text-danger fs-1"></i>
-                            </div>
-                            <h4 class="fw-bold mb-2">Flappy Bird Game</h4>
-                            <p class="text-muted mb-3">Game Flappy Bird klasik dengan physics smooth, high score system, dan responsive design.</p>
-                            <div class="mb-3">
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">Canvas</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">JavaScript</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger">HTML5</span>
-                            </div>
-                            <a href="project/flappy-bird/index.html" target="_blank" class="text-danger text-decoration-none fw-semibold">
-                                <i class="fas fa-external-link-alt me-1"></i> Buka Project
-                            </a>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/flappy-bird/index.html" target="_blank" style="color: inherit; text-decoration: none;">Flappy Bird Game</a></h3>
+                        <p>Game Flappy Bird klasik dengan physics smooth, high score system, dan responsive design.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Canvas</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">HTML5</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Snake Game -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-                    <div class="card border-0 shadow-sm h-100 project-card">
-                        <div class="card-body">
-                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 mb-3 text-center">
-                                <i class="fas fa-ghost text-danger fs-1"></i>
-                            </div>
-                            <h4 class="fw-bold mb-2">Snake Game</h4>
-                            <p class="text-muted mb-3">Game ular klasik dengan multiple difficulty levels, high score, dan mobile controls.</p>
-                            <div class="mb-3">
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">JavaScript</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">Canvas</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger">CSS3</span>
-                            </div>
-                            <a href="project/snake/index.html" target="_blank" class="text-danger text-decoration-none fw-semibold">
-                                <i class="fas fa-external-link-alt me-1"></i> Buka Project
-                            </a>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/snake/index.html" target="_blank" style="color: inherit; text-decoration: none;">Snake Game</a></h3>
+                        <p>Game ular klasik dengan multiple difficulty levels, high score, dan mobile controls.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Canvas</span>
+                            <span class="project-tag">CSS3</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tic Tac Toe -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-                    <div class="card border-0 shadow-sm h-100 project-card">
-                        <div class="card-body">
-                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 mb-3 text-center">
-                                <i class="fas fa-times text-danger fs-1"></i>
-                            </div>
-                            <h4 class="fw-bold mb-2">Tic Tac Toe Game</h4>
-                            <p class="text-muted mb-3">Game tic tac toe interaktif dengan mode PvP dan PvC (AI), scoring system lengkap.</p>
-                            <div class="mb-3">
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">JavaScript</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">AI Algorithm</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger">CSS3</span>
-                            </div>
-                            <a href="project/tictactoe/index.html" target="_blank" class="text-danger text-decoration-none fw-semibold">
-                                <i class="fas fa-external-link-alt me-1"></i> Buka Project
-                            </a>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/tictactoe/index.html" target="_blank" style="color: inherit; text-decoration: none;">Tic Tac Toe Game</a></h3>
+                        <p>Game tic tac toe interaktif dengan mode PvP dan PvC (AI), scoring system lengkap.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">AI Algorithm</span>
+                            <span class="project-tag">CSS3</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Arung Senja Cafe -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
-                    <div class="card border-0 shadow-sm h-100 project-card">
-                        <div class="card-body">
-                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 mb-3 text-center">
-                                <i class="fas fa-coffee text-danger fs-1"></i>
-                            </div>
-                            <h4 class="fw-bold mb-2">Arung Senja Cafe</h4>
-                            <p class="text-muted mb-3">Website cafe modern dengan menu filtering, reservation form, dan gallery showcase.</p>
-                            <div class="mb-3">
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">HTML5</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">CSS3</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger">JavaScript</span>
-                            </div>
-                            <a href="project/cafe/index.html" target="_blank" class="text-danger text-decoration-none fw-semibold">
-                                <i class="fas fa-external-link-alt me-1"></i> Buka Project
-                            </a>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/cafe/index.html" target="_blank" style="color: inherit; text-decoration: none;">Arung Senja Cafe</a></h3>
+                        <p>Website cafe modern dengan menu filtering, reservation form, dan gallery showcase.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Wedding Invitation -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
-                    <div class="card border-0 shadow-sm h-100 project-card">
-                        <div class="card-body">
-                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 mb-3 text-center">
-                                <i class="fas fa-heart text-danger fs-1"></i>
-                            </div>
-                            <h4 class="fw-bold mb-2">Wedding Invitation</h4>
-                            <p class="text-muted mb-3">Undangan pernikahan digital elegan dengan countdown timer, RSVP form, dan photo gallery.</p>
-                            <div class="mb-3">
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">HTML5</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">CSS3</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger">JavaScript</span>
-                            </div>
-                            <a href="project/undangan-pernikahan/index.html" target="_blank" class="text-danger text-decoration-none fw-semibold">
-                                <i class="fas fa-external-link-alt me-1"></i> Buka Project
-                            </a>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/undangan-pernikahan/index.html" target="_blank" style="color: inherit; text-decoration: none;">Wedding Invitation</a></h3>
+                        <p>Undangan pernikahan digital elegan dengan countdown timer, RSVP form, dan photo gallery.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Telkom University Website -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="600">
-                    <div class="card border-0 shadow-sm h-100 project-card">
-                        <div class="card-body">
-                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 mb-3 text-center">
-                                <i class="fas fa-university text-danger fs-1"></i>
-                            </div>
-                            <h4 class="fw-bold mb-2">Telkom University Web</h4>
-                            <p class="text-muted mb-3">Website kampus Telkom University dengan program filtering dan admission form system.</p>
-                            <div class="mb-3">
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">HTML5</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger me-1">Bootstrap</span>
-                                <span class="badge bg-danger bg-opacity-10 text-danger">JavaScript</span>
-                            </div>
-                            <a href="project/web-kampus/index.html" target="_blank" class="text-danger text-decoration-none fw-semibold">
-                                <i class="fas fa-external-link-alt me-1"></i> Buka Project
-                            </a>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/web-kampus/index.html" target="_blank" style="color: inherit; text-decoration: none;">Telkom University Web</a></h3>
+                        <p>Website kampus Telkom University dengan program filtering dan admission form system.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">Bootstrap</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3><a href="project/outfit/" target="_blank" style="color: inherit; text-decoration: none;">Virtual Try-On AI</a></h3>
+                        <p>Website virtual try-on menggunakan AI untuk mencoba outfit secara digital dengan hasil realistis.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">AI</span>
+                            <span class="project-tag">Replicate</span>
                         </div>
                     </div>
                 </div>
@@ -316,105 +793,125 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">Hubungi Saya</h2>
-            <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
-                    <h3 class="fw-bold mb-3">Mari Berkolaborasi!</h3>
-                    <p class="text-muted mb-4">Saya terbuka untuk peluang kerja sama, proyek freelance, atau diskusi tentang teknologi. Jangan ragu untuk menghubungi saya!</p>
-                    
-                    <div class="d-flex align-items-start mb-3">
-                        <div class="bg-danger bg-opacity-10 rounded-3 p-3 me-3">
-                            <i class="fas fa-envelope text-danger fs-4"></i>
+            <div class="section-title">
+                <h2>Hubungi Saya</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 20px;">Mari Berkolaborasi!</h3>
+                    <p style="margin-bottom: 30px; opacity: 0.9;">Saya terbuka untuk peluang kerja sama, proyek freelance, atau diskusi tentang teknologi. Jangan ragu untuk menghubungi saya!</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <h5 class="fw-bold mb-1">Email</h5>
-                            <p class="text-muted mb-0">your.email@example.com</p>
+                            <h3>Email</h3>
+                            <p>your.email@example.com</p>
                         </div>
                     </div>
-                    
-                    <div class="d-flex align-items-start mb-3">
-                        <div class="bg-danger bg-opacity-10 rounded-3 p-3 me-3">
-                            <i class="fas fa-phone text-danger fs-4"></i>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
                         <div>
-                            <h5 class="fw-bold mb-1">Telepon</h5>
-                            <p class="text-muted mb-0">+62 812-3456-7890</p>
+                            <h3>Telepon</h3>
+                            <p>+62 812-3456-7890</p>
                         </div>
                     </div>
-                    
-                    <div class="d-flex align-items-start mb-4">
-                        <div class="bg-danger bg-opacity-10 rounded-3 p-3 me-3">
-                            <i class="fas fa-map-marker-alt text-danger fs-4"></i>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h5 class="fw-bold mb-1">Lokasi</h5>
-                            <p class="text-muted mb-0">Indonesia</p>
+                            <h3>Lokasi</h3>
+                            <p>Indonesia</p>
                         </div>
-                    </div>
-                    
-                    <div class="d-flex gap-2">
-                        <a href="#" class="btn btn-danger btn-lg rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="btn btn-danger btn-lg rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="btn btn-danger btn-lg rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="btn btn-danger btn-lg rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fab fa-twitter"></i>
-                        </a>
                     </div>
                 </div>
-                ss
-                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <form id="contactForm">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Nama Anda" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control form-control-lg" placeholder="Email Anda" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Subjek">
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control form-control-lg" rows="5" placeholder="Pesan Anda" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-danger btn-lg w-100">
-                                    <i class="fas fa-paper-plane me-2"></i> Kirim Pesan
-                                </button>
-                            </form>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama Anda" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Pesan Anda" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
+    <footer>
         <div class="container">
-            <p class="mb-2">&copy; 2025 Portfolio Mahasiswa Informatika. All Rights Reserved.</p>
-            <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> using Bootstrap & JavaScript</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Portfolio Delon Nicholas Hermawan.</p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-4" style="width: 50px; height: 50px; display: none; z-index: 1000;">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script>
+        // Toggle menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pesan telah dikirim! Saya akan membalasnya segera.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
