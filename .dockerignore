@@ -1,0 +1,30 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+*.md
+
+# Backup files
+*.backup
+*.bak
+
+# Node modules (jika ada)
+node_modules
+
+# CapRover
+captain-definition
+Dockerfile
+.dockerignore
+nginx.conf
